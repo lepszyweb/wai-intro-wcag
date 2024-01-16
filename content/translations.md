@@ -43,336 +43,250 @@ This page lists translations of Web Content Accessibility Guidelines (WCAG) 2.2,
 {% include_cached toc.html type="end" %}
 {:/}
 
-
 ## Types of Translations
 
 Two types of translations are listed on this page:
 
--   _[Authorized Translations](http://www.w3.org/2005/02/TranslationPolicy)_ follow a formal review process and are endorsed by W3C.
+-   _[Authorized Translations](https://www.w3.org/2005/02/TranslationPolicy)_ follow a formal review process and are endorsed by W3C.
 -   _Unofficial translations_ are not reviewed and are not endorsed by W3C.
 
-## WCAG 2.2 Completed and Planned Translations
+{% assign wcag = site.data.standards-translations | where_exp: "item", "item.standard == 'wcag'" | map: "versions" %}
+{% assign wcag20 = wcag[0] | where_exp: "item", "item.version == 2.0" | first %}
+{% assign wcag21 = wcag[0] | where_exp: "item", "item.version == 2.1" | first %}
+{% assign wcag22 = wcag[0] | where_exp: "item", "item.version == 2.2" | first %}
 
-<table class="langstable dense">
+## WCAG 2.2
+
+### Available Translations
+
+<table class="quiet">
   <thead>
     <tr>
       <th scope="col">Language</th>
-      <th scope="col">Translations available</th>
+      <th scope="col">Link</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for trans in wcag22.translations -%}
+    <tr>
+      <th id="{{ trans.lang }}22">{{ site.data.lang[trans.lang].name }}</th>
+      {%- if trans.title -%}<td lang="{{ trans.lang }}">{%- else -%}<td>{%- endif -%}
+        <strong><a href="{{ trans.url }}" hreflang="{{ trans.lang }}">
+        {%- if trans.title -%}{{ trans.title}}{%- else -%}{{ wcag22.en_title }}{%- endif -%} {% include_cached external.html %}</a></strong>
+      </td>
+      <td>{%- if trans.type == "authorized" -%}Authorized{%- elsif trans.type == "external" -%}Unofficial{%- endif -%}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+
+{::nomarkdown}
+{% include excol.html type="start" %}
+{:/}
+
+### Planned Translations
+
+{::nomarkdown}
+{% include excol.html type="middle" %}
+
+<table class="quiet">
+  <thead>
+    <tr>
+      <th scope="col">Language</th>
+      <th scope="col">Type</th>
       <th scope="col">Notes and e-mail notifications</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th id="ar22">Arabic</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0026.html">notification of intent for Arabic Authorized Translation of WCAG&nbsp;2.2 (17 November 2023)</a></td>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0026.html">Notification of intent (17 November 2023)</a></td>
     </tr>
     <tr>
       <th id="ca22">Catalan</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0036.html">notification of intent for Catalan Authorized Translation of WCAG&nbsp;2.2 (13 December 2023)</a></td>
-    </tr>
-    <tr>
-      <th id="zh-hans22">Chinese, Simplified</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0006.html">notification of intent for Simplified Chinese Authorized Translation of WCAG&nbsp;2.2 (8 October 2023)</a></td>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0036.html">Notification of intent (13 December 2023)</a></td>
     </tr>
     <tr>
       <th id="nl22">Dutch</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023AprJun/0016.html">notification of intent for Dutch Authorized Translation of WCAG&nbsp;2.2 (5 June 2023)</a></td>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2023AprJun/0016.html">Notification of intent (5 June 2023)</a></td>
     </tr>
     <tr>
       <th id="fr22">French</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2022JulSep/0001.html">notification of intent for French Authorized Translation of WCAG&nbsp;2.2 (25 July 2022)</a></td>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2022JulSep/0001.html">Notification of intent (25 July 2022)</a></td>
     </tr>
     <tr>
-      <th id="it22">Italian</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG22-it/">Italian Authorized Translation of WCAG 2.2 completed</a></strong></td>
-      <td></td>
+      <th id="pt22">Brazilian Portuguese</th>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0011.html">Notification of intent (17 October 2023)</a></td>      
     </tr>
     <tr>
-      <th id="pt22">Portuguese, Brazilian</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0011.html">notification of intent for Brazilian Portuguese Authorized Translation of WCAG 2.2 (17 October 2023)</a></td>      
+      <th id="zh-hans22">Simplified Chinese</th>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2023OctDec/0006.html">Notification of intent (8 October 2023)</a></td>
     </tr>
   </tbody>
 </table>
 
-## WCAG 2.1 Completed and Planned Translations
+{% include excol.html type="end" %}
+{:/}
 
-<table class="langstable dense">
+## WCAG 2.1
+
+### Available Translations
+
+<table class="quiet">
   <thead>
     <tr>
       <th scope="col">Language</th>
-      <th scope="col">Translations available</th>
+      <th scope="col">Link</th>
+      <th scope="col">Type</th>
+    </tr>
+     </thead>
+  <tbody>  
+  {%- for trans in wcag21.translations -%}
+    <tr>
+      <th id="{{ trans.lang }}21">{{ site.data.lang[trans.lang].name }}</th>
+      {%- if trans.title -%}<td lang="{{ trans.lang }}">{%- else -%}<td>{%- endif -%}
+        <strong><a href="{{ trans.url }}" hreflang="{{ trans.lang }}">
+        {%- if trans.title -%}{{ trans.title}}{%- else -%}{{ wcag22.en_title }}{%- endif -%} {% include_cached external.html %}</a></strong>
+      </td>
+      <td>{%- if trans.type == "authorized" -%}Authorized{%- elsif trans.type == "external" -%}Unofficial{%- endif -%}</td>
+    </tr>
+  {%- endfor -%}
+  </tbody>
+</table>
+
+{::nomarkdown}
+{% include excol.html type="start" %}
+{:/}
+
+### Planned Translations
+
+{::nomarkdown}
+{% include excol.html type="middle" %}
+
+<table class="quiet">
+  <thead>
+    <tr>
+      <th scope="col">Language</th>
+      <th scope="col">Type</th>
       <th scope="col">Notes and e-mail notifications</th>
     </tr>
      </thead>
   <tbody>
     <tr>
-      <th id="ar21">Arabic</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-ar/">Arabic Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
       <th id="bg21">Bulgarian</th>
-      <td></td>
-      <td>Unofficial translation  — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2021OctDec/0000.html">draft Bulgarian unofficial translation of WCAG 2.1 (1 October 2021)</a></td>
-    </tr>
-    <tr>
-      <th id="ca21">Catalan</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-ca/">Catalan Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>    
-    <tr>
-      <th id="zh-hans21">Chinese, Simplified</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-zh/">Simplified Chinese Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="zh-hant21">Chinese, Traditional</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023JulSep/0010.html">notification of intent for Traditional Chinese Authorized Translation of WCAG&nbsp;2.1 (5 September 2023)</a></td>
-    </tr>
-    <tr>
-      <th id="fi21">Finnish</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-fi/">Finnish Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="fr21">French</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-fr/">French Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="da21">Danish</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-da/">Danish Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th id="nl21">Dutch</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-nl/">Dutch Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
-        <th id="de21">German</th>
-        <td><a href="https://outline-rocks.github.io/wcag/translations/WCAG21-de/">German unofficial translation of WCAG 2.1 {% include_cached external.html %}</a></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th id="il21">Hebrew</th>
-        <td></td>
-        <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2020JanMar/0025.html">Hebrew Intention of translation (21 March 2020)</a></td>
-     </tr>
-    <tr>
-      <th id="it21">Italian</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-it/">Italian Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th id="kr21">Korean</th>
-      <td><a href="http://www.kwacc.or.kr/WAI/wcag21/">Korean unofficial translation of WCAG 2.1  {% include_cached external.html %}</a></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th id="nb21">Norwegian Bokmål</th>
-       <td><strong><a href="https://www.w3.org/Translations/WCAG21-no/">Norwegian Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th id="pl21">Polish</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-pl/">Polish Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <th id="pt21">Portuguese, Brazilian</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2018AprJun/0026.html">notification of intent for Brazilian Portuguese Authorized Translation of WCAG 2.1 (25 June 2018)</a></td>      
-    </tr>
-    <tr>
-      <th id="pt3">Portuguese,  European</th>
-      <td></td>
-      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2018OctDec/0023.html">notification of intent for European Portuguese Authorized Translation of WCAG 2.1 (2 November 2018)</a></td>
-    </tr>
-    <tr>
-      <th id="sk21">Slovak</th>
-      <td><a href="https://s3.eu-central-1.amazonaws.com/w3c-wcag-2.1-sk/index.html">Slovak Candidate Authorized Translation of WCAG 2.1  {% include_cached external.html %}</a></td>
-      <td>Review  — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2021AprJun/0002.html">notification of review of Slovak Candidate Authorized Translation of WCAG 2.1 (13 April 2021)</a></td>
+      <td>Unofficial</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2021OctDec/0000.html">Draft Bulgarian unofficial translation of WCAG 2.1 (1 October 2021)</a></td>
     </tr>
     <tr>
       <th id="es21">Spanish</th>
-      <td></td>
-      <td>Unofficial translation  — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2019AprJun/0004.html">notification of intent for Spanish unofficial translation of WCAG 2.1 (12 April 2019)</a></td>
+      <td>Unofficial</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2019AprJun/0004.html">Notification of intent (12 April 2019)</a></td>
     </tr>
     <tr>
-      <th id="uk21">Ukrainian</th>
-      <td><strong><a href="https://www.w3.org/Translations/WCAG21-ua/">Ukrainian Authorized Translation of WCAG 2.1 completed</a></strong></td>
-      <td>&nbsp;</td>
+      <th id="il21">Hebrew</th>
+      <td></td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2020JanMar/0025.html">Hebrew Intention of translation (21 March 2020)</a></td>
+    </tr>
+    <tr>
+      <th id="pt21">Portuguese, Brazilian</th>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2018AprJun/0026.html">notification of intent for Brazilian Portuguese Authorized Translation of WCAG 2.1 (25 June 2018)</a></td>      
+    </tr>
+    <tr>
+      <th id="pt3">Portuguese, European</th>
+      <td>Authorized</td>
+      <td><a href="https://lists.w3.org/Archives/Public/w3c-translators/2018OctDec/0023.html">Notification of intent for European Portuguese Authorized Translation of WCAG 2.1 (2 November 2018)</a></td>
+    </tr>
+    <tr>
+      <th id="sk21">Slovak</th>
+      <td>Authorized</td>
+      <td><a href="https://s3.eu-central-1.amazonaws.com/w3c-wcag-2.1-sk/index.html">Slovak Candidate Authorized Translation of WCAG 2.1  {% include_cached external.html %}</a><br />Review  — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2021AprJun/0002.html">notification of review of Slovak Candidate Authorized Translation of WCAG 2.1 (13 April 2021)</a></td>
+    </tr>
+    <tr>
+      <th id="zh-hant21">Traditional Chinese</th>
+      <td>Authorized</td>
+      <td>Authorized Translation — <a href="https://lists.w3.org/Archives/Public/w3c-translators/2023JulSep/0010.html">notification of intent for Traditional Chinese Authorized Translation of WCAG&nbsp;2.1 (5 September 2023)</a></td>
     </tr>
   </tbody>
 </table>
 
+{% include excol.html type="end" %}
+{:/}
 
-## WCAG 2.0 Completed and Planned Translations
+## WCAG 2.0
 
-<table class="langstable dense">
+### Available Translations
+
+<table class="quiet">
+  <thead>
+    <tr>
+      <th scope="col">Language</th>
+      <th scope="col">Link</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for trans in wcag20.translations -%}
+    <tr>
+      <th id="{{ trans.lang }}22">{{ site.data.lang[trans.lang].name }}</th>
+      {%- if trans.title -%}<td lang="{{ trans.lang }}">{%- else -%}<td>{%- endif -%}
+        <strong><a href="{{ trans.url }}" hreflang="{{ trans.lang }}">
+        {%- if trans.title -%}{{ trans.title}}{%- else -%}{{ wcag22.en_title }}{%- endif -%} {% include_cached external.html %}</a></strong>
+      </td>
+      <td>{%- if trans.type == "authorized" -%}Authorized{%- elsif trans.type == "external" -%}Unofficial{%- endif -%}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+
+{::nomarkdown}
+{% include excol.html type="start" %}
+{:/}
+
+### Planned Translations
+
+{::nomarkdown}
+{% include excol.html type="middle" %}
+
+<table class="quiet">
   <thead>
      <tr>
         <th scope="col">Language</th>
-        <th scope="col">Translations available</th>
+        <th scope="col">Type</th>
         <th scope="col">Notes and e-mail notifications</th>
      </tr>
   </thead>
   <tbody>
      <tr>
-        <th class="changed"><a name="ar" id="ar">Arabic</a></th>
-        <td class="changed"><a href="http://www.alecso.org/wcag2.0/">Arabic Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td class="changed">Review — <a href="https://lists.w3.org/Archives/Public/w3c-wai-ig/2013AprJun/0106.html">notification of review of Arabic Candidate Authorized Translation of WCAG 2.0 (11 April 2013)</a><br>
-        Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JulSep/0113.html">notification of intent for Arabic Authorized Translation of WCAG 2.0 (12 September 2010)</a></td>
+        <th class="changed"><a id="ar">Arabic</a></th>
+        <td class="changed">Authorized</td>
+        <td class="changed">
+        <a href="http://www.alecso.org/wcag2.0/">Arabic Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a>
+        Review — <a href="https://lists.w3.org/Archives/Public/w3c-wai-ig/2013AprJun/0106.html">Notification of review (11 April 2013)</a><br>
+        Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JulSep/0113.html">Notification of intent (12 September 2010)</a></td>
      </tr>
      <tr>
-        <th><a name="be" id="be">Belarusian</a></th>
+        <th><a id="be">Belarusian</a></th>
+        <td>Unofficial</td>
         <td><a href="http://www.fatcow.com/resources/wai-be.html">Belarusian unofficial translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td></td>
      </tr>
      <tr>
-        <th><a name="ca" id="ca">Catalan</a></th>
-        <td><a href="http://www.w3.org/Translations/WCAG20-ca/"><strong>Catalan Authorized Translation of WCAG 2.0 completed</strong></a></td>
-        <td></td>
+        <th><a id="cs">Czech</a></th>
+        <td>Authorized</td>
+        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2010OctDec/0022.html">Launch of Czech Authorized Translation of WCAG 2.0 (15 October 2010)</a></td>
      </tr>
      <tr>
-        <th><a name="zh" id="zh">Chinese, Simplified</a></th>
-        <td><strong><a href="http://www.w3.org/translations/wcag20-zh/">Simplified Chinese Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="hr" id="hr">Croatian</a></th>
-        <td></td>
-        <td>Unofficial translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009OctDec/0188.html">notification of intent for Croatian unofficial translation of WCAG 2.0 (20 November 2009)</a></td>
-     </tr>
-     <tr>
-        <th><a name="cs" id="cs">Czech</a></th>
-        <td></td>
-        <td>Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010OctDec/0022.html">launch of Czech Authorized Translation of WCAG 2.0 (15 October 2010)</a></td>
-     </tr>
-     <tr>
-        <th><a name="da" id="da">Danish</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-da/">Danish Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="nl" id="nl">Dutch</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-nl/">Dutch Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="et" id="et">Estonian</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-et/">Estonian Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="fi" id="fi">Finnish</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-fi/">Finnish Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="fr" id="fr">French</a></th>
-        <td><p><a href="http://www.w3.org/Translations/WCAG20-fr/"><strong>French Authorized Translation of WCAG 2.0 completed</strong></a></p></td>
-<td><a href="http://www.w3.org/Translations/NOTE-UNDERSTANDING-WCAG20-fr/">French Authorized Translation of Understanding WCAG 2.0 completed &mdash; outdate version</a></td>
-     </tr>
-     <tr>
-        <th><a name="de" id="de">German</a></th>
-        <td><a href="http://www.w3.org/Translations/WCAG20-de/"><strong>German Authorized Translation of WCAG 2.0 completed</strong></a></td>
-        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JanMar/0013.html">German unofficial translations of other WCAG 2.0 documents</a></td>
-     </tr>
-     <!--
-     <tr>
-        <th><a name="el" id="el">Greek</a></th>
-        <td></td>
-        <td>on-going discussion with potential translators</td>
-     </tr>
-     -->
-     <tr>
-        <th><a name="il" id="il">Hebrew</a></th>
-        <td><a href="http://www.isoc.org.il/w3c-wai/guidelines.html">Hebrew unofficial translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="hi" id="hi">Hindi</a></th>
-        <td></td>
-        <td>Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009AprJun/0147.html">notification of intent for Hindi Authorized Translation of WCAG 2.0 (21 May 2009)</a></td>
-     </tr>
-     <tr>
-        <th><a name="hu" id="hu">Hungarian</a></th>
-        <td><a href="http://www.w3c.hu/forditasok/WCAG20/">Hungarian unofficial translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th><a name="it" id="it">Italian</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-it/">Italian Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td><!--// <a href="@@@">Italian Authorized Translation of <strong>Understanding WCAG 2.0</strong> in progress (@@ January 2010)</a>//--></td>
-     </tr>
-     <tr>
-        <th><a name="ja" id="ja">Japanese</a></th>
-        <td><a href="http://waic.jp/docs/WCAG20/Overview.html">Japanese unofficial translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td>Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009JanMar/0198.html">notification of intent for Japanese Authorized Translation of WCAG 2.0 (22 March 2009)</a></td>
-     </tr>
-     <tr>
-        <th><a name="ko" id="ko">Korean</a></th>
-        <td><a href="http://archi.ssu.ac.kr/WCAG20/">Korean unofficial translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td>Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009JanMar/0077.html">notification of intent for Korean Authorized Translation of WCAG 2.0 (30 January 2009)</a></td>
-     </tr>
-     <tr>
-        <th><a name="lt" id="lt">Lithuanian</a></th>
-        <td> </td>
-        <td>Unofficial translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2011JulSep/0063.html">notification of intent for Lithuanian unofficial translation of WCAG 2.0 (6 September 2011)</a></td>
-     </tr>
-     <tr>
-        <th><a name="mk" id="mk">Macedonian</a></th>
-        <td></td>
-        <td>Authorized Translation — notification of intent for Macedonian Authorized Translation of WCAG 2.0</td>
-     </tr>
-     <tr>
-        <th><a name="no" id="no">Norwegian</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-no/">Norwegian Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th class="changed"><a name="pl" id="pl">Polish</a></th>
-        <td class="changed"><a href="http://fdc.org.pl/wcag2/">Polish Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a></td>
-        <td class="changed">Review — <a href="https://lists.w3.org/Archives/Public/w3c-wai-ig/2013AprJun/0259.html">notification of review of Polish Candidate Authorized Translation of WCAG 2.0 (03 June 2013)</a><br>
-        Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JanMar/0100.html">notification of intent for Polish Authorized Translation of WCAG 2.0 (8 March 2010)</a></td>
-     </tr>
-     <tr>
-       <th><a name="pt-BR" id="pt-BR">Portuguese, Brazilian</a></th>
-       <td><strong><a href="https://www.w3.org/Translations/WCAG20-pt-BR/">Brazilian Portuguese Authorized Translation of WCAG 2.0 completed</a></strong></td>
-       <td></td>
-     </tr>
-     <tr>
-        <th><a name="pt-PT" id="pt-PT">Portuguese, European</a></th>
-        <td><strong><a href="https://www.w3.org/Translations/WCAG20-pt-PT/">European Portuguese Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td><ul>
-              <li><a href="http://www.acesso.umic.pt/w3/TR/UNDERSTANDING-WCAG20/">Portuguese unofficial translation for <strong>Understanding WCAG 2.0</strong> completed {% include_cached external.html %}</a></li>
-              <li><a href="http://www.acesso.umic.pt/w3/TR/WCAG20-TECHS/">Portuguese unofficial translation for <strong>Techniques for WCAG 2.0</strong> completed {% include_cached external.html %}</a></li>
-              <li><a href="http://www.acesso.umic.pt/w3/TR/WCAG20-quickref/">Portuguese unofficial translation for <strong>How To Meet WCAG 2.0</strong> completed {% include_cached external.html %}</a></li>
-           </ul></td>
-     </tr>
-     <tr>
-        <th><a name="ro" id="ro">Romanian</a></th>
-        <td></td>
-        <td>Unofficial translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JanMar/0031.html">notification of intent for Romanian unofficial translation of WCAG 2.0 (20 January 2010)</a></td>
-     </tr>
-     <tr>
-        <th><a name="ru" id="ru">Russian</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-ru/">Russian Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
-     </tr>
-     <tr>
-        <th class="changed"><a name="es" id="es">Spanish</a></th>
-        <td class="changed"><a href="http://www.sidar.org/traducciones/wcag20/es/">Spanish Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a></td>
+        <th class="changed"><a id="es">Spanish</a></th>
+        <td class="changed">Authorized</td>
         <td class="changed"><ul>
+              <li><a href="http://www.sidar.org/traducciones/wcag20/es/">Spanish Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a></li>
               <li>Review — <a href="https://lists.w3.org/Archives/Public/w3c-wai-ig/2009OctDec/0122.html">notification of review of Spanish Candidate Authorized Translation of WCAG 2.0 (17 December 2009)</a></li>
               <li>Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009OctDec/0280.html">announcement of Spanish Candidate Authorized Translation of WCAG 2.0 review period (17 December 2009)</a></li>
               <li><a href="http://www.codexexempla.org/traducciones/pautas-accesibilidad-contenido-web-2.0.htm">Spanish unofficial translation of WCAG 2.0 completed {% include_cached external.html %}</a></li>
@@ -380,13 +294,50 @@ Two types of translations are listed on this page:
            </ul></td>
      </tr>
      <tr>
-        <th><a name="se" id="se">Swedish</a></th>
-        <td><strong><a href="http://www.w3.org/Translations/WCAG20-sv/">Swedish Authorized Translation of WCAG 2.0 completed</a></strong></td>
-        <td></td>
+        <th><a id="hi">Hindi</a></th>
+        <td>Authorized</td>
+        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2009AprJun/0147.html">Notification of intent (21 May 2009)</a></td>
+     </tr>
+     <tr>
+        <th><a id="hr">Croatian</a></th>
+        <td>Unofficial</td>
+        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2009OctDec/0188.html">Notification of intent (20 November 2009)</a></td>
+     </tr>
+     <tr>
+        <th><a id="ko">Korean</a></th>
+        <td>Authorized</td>
+        <td><a href="http://archi.ssu.ac.kr/WCAG20/">Korean unofficial translation of WCAG 2.0 {% include_cached external.html %}</a> Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2009JanMar/0077.html">notification of intent for Korean Authorized Translation of WCAG 2.0 (30 January 2009)</a></td>
+     </tr>
+     <tr>
+        <th><a id="lt">Lithuanian</a></th>
+        <td>Unofficial</td>
+        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2011JulSep/0063.html">Notification of intent (6 September 2011)</a></td>
+     </tr>
+     <tr>
+        <th><a id="mk">Macedonian</a></th>
+        <td>Authorized</td>
+        <td>Authorized Translation — notification of intent for Macedonian Authorized Translation of WCAG 2.0</td>
+     </tr>
+     <tr>
+        <th class="changed"><a id="pl">Polish</a></th>
+        <td class="changed">Authorized</td>
+        <td class="changed">
+        <a href="http://fdc.org.pl/wcag2/">Polish Candidate Authorized Translation of WCAG 2.0 {% include_cached external.html %}</a>
+        Review — <a href="https://lists.w3.org/Archives/Public/w3c-wai-ig/2013AprJun/0259.html">Notification of review (03 June 2013)</a><br>
+        Authorized Translation — <a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JanMar/0100.html">Notification of intent (8 March 2010)</a></td>
+     </tr>
+     <tr>
+        <th><a id="ro">Romanian</a></th>
+        <td>Unofficial</td>
+        <td><a href="http://lists.w3.org/Archives/Public/w3c-translators/2010JanMar/0031.html">Notification of intent (20 January 2010)</a></td>
      </tr>
   </tbody>
 
 </table>
+
+{% include excol.html type="end" %}
+{:/}
+
 
 ## More Information
 
